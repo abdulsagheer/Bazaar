@@ -26,7 +26,7 @@ const UserOrderDetails = () => {
       data?.details?.productId?.discount
     ) * data?.details?.quantities,
     {
-      code: "USD",
+      code: "INR",
     }
   );
 
@@ -38,25 +38,25 @@ const UserOrderDetails = () => {
         <Header>order details</Header>
         <div className="my-container mt-[40px]">
           <div className="flex flex-wrap -mx-6">
-            <div className="w-full md:w-4/12 p-6">
+            <div className="w-full p-6 md:w-4/12">
               <AccountList />
             </div>
-            <div className="w-full md:w-8/12 p-6">
-              <h1 className="heading flex items-center">
+            <div className="w-full p-6 md:w-8/12">
+              <h1 className="flex items-center heading">
                 {" "}
                 <MdOutlineKeyboardBackspace
-                  className="cursor-pointer text-gray-500"
+                  className="text-gray-500 cursor-pointer"
                   onClick={() => navigate(-1)}
                 />{" "}
                 <span className="ml-5">details</span>
               </h1>
               {!isFetching ? (
-                <div className="flex flex-col md:flex-row flex-wrap my-5">
+                <div className="flex flex-col flex-wrap my-5 md:flex-row">
                   <div className="w-[130px] md:w-[160px] h-[130px] md:h-[160px] overflow-hidden">
                     <img
                       src={`/images/${data?.details?.productId?.image1}`}
                       alt=""
-                      className="w-full h-full object-cover rounded-md"
+                      className="object-cover w-full h-full rounded-md"
                     />
                   </div>
                   <div className="flex-1 my-4 md:my-0 md:ml-4">
@@ -87,8 +87,8 @@ const UserOrderDetails = () => {
                       />
                     )}
                     {data?.details?.received && !data?.details?.review && (
-                      <div className="flex mt-2 items-center justify-between">
-                        <h4 className="capitalize text-base font-normal text-gray-600 mr-5">
+                      <div className="flex items-center justify-between mt-2">
+                        <h4 className="mr-5 text-base font-normal text-gray-600 capitalize">
                           add rating
                         </h4>
                         <button
@@ -100,7 +100,7 @@ const UserOrderDetails = () => {
                       </div>
                     )}
 
-                    <div className="overflow-x-auto mt-4">
+                    <div className="mt-4 overflow-x-auto">
                       <table className="w-full">
                         <thead>
                           <tr className="thead-tr">
@@ -130,7 +130,7 @@ const UserOrderDetails = () => {
                                   data?.details?.productId?.discount
                                 ),
                                 {
-                                  code: "USD",
+                                  code: "INR",
                                 }
                               )}
                             </td>

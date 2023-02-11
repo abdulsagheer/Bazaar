@@ -77,7 +77,7 @@ const Cart = () => {
                     const total = currency.format(
                       discount(item.price, item.discount) * item.quantity,
                       {
-                        code: "USD",
+                        code: "INR",
                       }
                     );
                     return (
@@ -103,7 +103,7 @@ const Cart = () => {
                           {currency.format(
                             discount(item.price, item.discount),
                             {
-                              code: "USD",
+                              code: "INR",
                             }
                           )}
                         </td>
@@ -133,7 +133,7 @@ const Cart = () => {
             <div className="bg-indigo-50 p-4 flex justify-end mt-5 rounded-md">
               <div>
                 <span className="text-lg font-semibold text-indigo-800 mr-10">
-                  {currency.format(total, { code: "USD" })}
+                  {currency.format(total, { code: "INR" })}
                 </span>
                 <button
                   className="btn bg-indigo-600 text-sm font-medium py-2.5"

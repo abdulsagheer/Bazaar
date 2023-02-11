@@ -61,30 +61,30 @@ const DetailsCard = ({ product }) => {
       className="flex flex-wrap -mx-5"
     >
       <Toaster />
-      <div className="w-full order-2 md:order-1 md:w-6/12 p-5">
+      <div className="order-2 w-full p-5 md:order-1 md:w-6/12">
         <div className="flex flex-wrap -mx-1">
           <DetailsImage image={product.image1} />
           <DetailsImage image={product.image2} />
           <DetailsImage image={product.image3} />
         </div>
       </div>
-      <div className="w-full order-1 md:order-2 md:w-6/12 p-5">
+      <div className="order-1 w-full p-5 md:order-2 md:w-6/12">
         <h1 className="text-2xl font-bold text-gray-900 capitalize">
           {product.title}
         </h1>
         <div className="flex justify-between my-5">
           <span className="text-2xl font-bold text-gray-900">
             {" "}
-            {currency.format(discountPrice, { code: "USD" })}
+            {currency.format(discountPrice, { code: "INR" })}
           </span>
-          <span className="text-xl line-through text-gray-500">
-            {currency.format(product.price, { code: "USD" })}
+          <span className="text-xl text-gray-500 line-through">
+            {currency.format(product.price, { code: "INR" })}
           </span>
         </div>
 
         {product.sizes.length > 0 && (
           <>
-            <h3 className="text-base font-medium capitalize text-gray-600 mb-3">
+            <h3 className="mb-3 text-base font-medium text-gray-600 capitalize">
               sizes
             </h3>
             <div className="flex flex-wrap -mx-1">
@@ -110,7 +110,7 @@ const DetailsCard = ({ product }) => {
         )}
         {product.colors.length > 0 && (
           <>
-            <h3 className="text-base font-medium capitalize text-gray-600 mb-2 mt-3">
+            <h3 className="mt-3 mb-2 text-base font-medium text-gray-600 capitalize">
               colors
             </h3>
             <div className="flex flex-wrap -mx-1">
@@ -118,7 +118,7 @@ const DetailsCard = ({ product }) => {
                 <div
                   key={color.color}
                   onClick={() => setColorState(color.color)}
-                  className="border border-gray-300 rounded m-1 p-1 cursor-pointer"
+                  className="p-1 m-1 border border-gray-300 rounded cursor-pointer"
                 >
                   <span
                     className="min-w-[40px] min-h-[40px] rounded flex items-center justify-center"
@@ -133,17 +133,17 @@ const DetailsCard = ({ product }) => {
             </div>
           </>
         )}
-        <div className="flex -mx-3 items-center">
-          <div className="w-full sm:w-6/12 p-3">
+        <div className="flex items-center -mx-3">
+          <div className="w-full p-3 sm:w-6/12">
             <Quantity quantity={quantity} inc={inc} dec={dec} />
           </div>
-          <div className="w-full sm:w-6/12 p-3">
+          <div className="w-full p-3 sm:w-6/12">
             <button className="btn btn-indigo" onClick={addToCart}>
               add to cart
             </button>
           </div>
         </div>
-        <h3 className="text-base font-medium capitalize text-gray-600 mb-2 mt-3">
+        <h3 className="mt-3 mb-2 text-base font-medium text-gray-600 capitalize">
           description
         </h3>
         <div className="mt-4 leading-[27px] description">{desc}</div>

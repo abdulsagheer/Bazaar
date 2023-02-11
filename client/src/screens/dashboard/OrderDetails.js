@@ -113,14 +113,14 @@ const OrderDetails = () => {
                             data?.details?.productId?.price,
                             data?.details?.productId?.discount
                           ),
-                          { code: "USD" }
+                          { code: "INR" }
                         )}
                       </td>
                       <td className="dashboard-td">
                         {data?.details?.size ? data?.details?.size : "No size"}
                       </td>
                       <td className="dashboard-td">
-                        {currency.format(total, { code: "USD" })}
+                        {currency.format(total, { code: "INR" })}
                       </td>
                       <td className="dashboard-td">
                         <span

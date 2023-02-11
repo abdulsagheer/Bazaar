@@ -27,11 +27,11 @@ const UserOrders = () => {
         <Header>my orders</Header>
         <div className="my-container mt-[40px]">
           <div className="flex flex-wrap -mx-6">
-            <div className="w-full md:w-4/12 p-6">
+            <div className="w-full p-6 md:w-4/12">
               <AccountList />
             </div>
-            <div className="w-full md:w-8/12 p-6">
-              <h1 className="heading mb-6">orders</h1>
+            <div className="w-full p-6 md:w-8/12">
+              <h1 className="mb-6 heading">orders</h1>
               {!isFetching ? (
                 data?.orders?.length > 0 ? (
                   <>
@@ -54,7 +54,7 @@ const UserOrders = () => {
                                 item.productId.discount
                               ) * item.quantities,
                               {
-                                code: "USD",
+                                code: "INR",
                               }
                             );
                             return (
@@ -63,13 +63,13 @@ const UserOrders = () => {
                                   <img
                                     src={`/images/${item.productId.image1}`}
                                     alt={item.productId.title}
-                                    className="w-12 h-12 object-cover rounded-full"
+                                    className="object-cover w-12 h-12 rounded-full"
                                   />
                                 </td>
-                                <td className=" td font-medium">
+                                <td className="font-medium  td">
                                   {item.productId.title}
                                 </td>
-                                <td className="td font-bold ">{total}</td>
+                                <td className="font-bold td ">{total}</td>
                                 <td className="td">
                                   <Link
                                     to={`/user-order-details/${item._id}`}
@@ -81,7 +81,7 @@ const UserOrders = () => {
                                 <td className="td">
                                   {item.status ? (
                                     item.received ? (
-                                      <span className="capitalize font-medium text-emerald-600">
+                                      <span className="font-medium capitalize text-emerald-600">
                                         received
                                       </span>
                                     ) : (
@@ -93,7 +93,7 @@ const UserOrders = () => {
                                       </button>
                                     )
                                   ) : (
-                                    <span className="capitalize font-medium text-rose-600">
+                                    <span className="font-medium capitalize text-rose-600">
                                       under process
                                     </span>
                                   )}
