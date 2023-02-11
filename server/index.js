@@ -13,18 +13,18 @@ const app = express();
 connect();
 app.use(cors());
 app.post(
-  "/api/webhook",
-  express.json({
-    verify: (req, res, buf) => {
-      req.rawBody = buf.toString();
-    },
-  })
+	"/api/webhook",
+	express.json({
+		verify: (req, res, buf) => {
+			req.rawBody = buf.toString();
+		},
+	})
 );
 // add middleware
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.json({ msg: "Welcome to chawkbazar" });
+	res.json({ msg: "Welcome to chawkbazar" });
 });
 // user routes
 app.use("/api", userRoutes);
@@ -36,5 +36,5 @@ app.use("/api", orderRoutes);
 const port = env.PORT || 5000;
 
 app.listen(port, () => {
-  console.log(`Your server is running at port number: ${port}`);
+	console.log(`Your server is running at port number: ${port}`);
 });

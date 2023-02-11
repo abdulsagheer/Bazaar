@@ -28,11 +28,9 @@ module.exports.register = async (req, res) => {
 					.json({ msg: "Your account has been created!", token });
 			} else {
 				// email already taken
-				return res
-					.status(400)
-					.json({
-						errors: [{ msg: `${email} is already taken`, param: "email" }],
-					});
+				return res.status(400).json({
+					errors: [{ msg: `${email} is already taken`, param: "email" }],
+				});
 			}
 		} catch (error) {
 			console.log(error.message);
@@ -63,18 +61,14 @@ module.exports.login = async (req, res) => {
 						return res.status(201).json({ token, admin: false });
 					}
 				} else {
-					return res
-						.status(400)
-						.json({
-							errors: [{ msg: "password not matched!", param: "password" }],
-						});
+					return res.status(400).json({
+						errors: [{ msg: "password not matched!", param: "password" }],
+					});
 				}
 			} else {
-				return res
-					.status(400)
-					.json({
-						errors: [{ msg: `${email} is not found!`, param: "email" }],
-					});
+				return res.status(400).json({
+					errors: [{ msg: `${email} is not found!`, param: "email" }],
+				});
 			}
 		} catch (error) {
 			console.log(error.message);
