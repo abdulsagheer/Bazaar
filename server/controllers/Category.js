@@ -22,7 +22,9 @@ class Category {
   }
   async categories(req, res) {
     const page = req.params.page;
+    // limit 3 products
     const perPage = 3;
+    // if its 1st page, skip 0 products, if its second page, skip first 3 products
     const skip = (page - 1) * perPage;
     try {
       const count = await CatgoryModel.find({}).countDocuments();
